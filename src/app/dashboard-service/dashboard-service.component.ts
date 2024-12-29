@@ -11,9 +11,9 @@ import { Item } from '../models/game-data.model';
   providedIn: 'root'
 })
 export class DashboardService {
-  private apiUrlPartidas = '/partidas/';
-  private apiUrlPersonagens = '/personagens/';
-  private apiUrlItens = '/itens/';
+  private apiUrlPartidas = 'https://api-shardsquad-v2.vercel.app/partidas/';
+  private apiUrlPersonagens = 'https://api-shardsquad-v2.vercel.app/personagens/';
+  private apiUrlItens = 'https://api-shardsquad-v2.vercel.app/itens/';
 
   constructor(private http: HttpClient) {}
 
