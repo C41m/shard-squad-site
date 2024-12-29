@@ -1,0 +1,17 @@
+.container-tabelas {
+  display: flex;                 // Alinha as tabelas lado a lado
+  justify-content: center;       // Centraliza as tabelas no container
+  align-items: flex-start;       // Alinha as tabelas no topo
+  gap: 20px;                     // Espaço entre as tabelas
+  width: 100%;                   // O container ocupa 100% da largura
+  padding: 10px;                 // Adiciona um espaçamento interno no container
+  box-sizing: border-box;        // Garante que o padding seja incluído no tamanho total
+}
+
+table {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Sombra (opcional)
+  table-layout: auto;            // Colunas ajustam-se ao conteúdo
+  width: 50%;                   // Largura automática, conforme o conteúdo
+  min-width: 200px;              // Define uma largura mínima para evitar colapsos
+}
+

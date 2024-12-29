@@ -1,0 +1,21 @@
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Filtrar por Versão</mat-label>
+    <mat-select [(value)]="selectedVersoes" multiple (selectionChange)="emitirFiltros()">
+      <mat-option [value]="'*'">Todas</mat-option>
+      <mat-option *ngFor="let versao of versoesDisponiveis" [value]="versao">
+        {{ versao }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Vitória/Derrota</mat-label>
+    <mat-select [(value)]="selectedVitoriaDerrota" multiple (selectionChange)="emitirFiltros()">
+      <mat-option [value]="'*'">Todas</mat-option>
+      <mat-option *ngFor="let resultado of vitoriaDerrotaDisponiveis" [value]="resultado">
+        {{ resultado }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

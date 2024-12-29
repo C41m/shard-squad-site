@@ -1,0 +1,126 @@
+
+<mat-form-field>
+  <mat-label>Filtro</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Root" #input>
+</mat-form-field>
+  
+
+  <table mat-table [dataSource]="dataSource" matSort order="desc">
+    <ng-container matColumnDef="versao">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Versão </th>
+      <td mat-cell *matCellDef="let row"> {{row.versao}} </td>
+    </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+      <td mat-cell *matCellDef="let row"> {{row.nome}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nomePc">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome PC </th>
+      <td mat-cell *matCellDef="let row"> {{row.nome_pc}} </td>
+    </ng-container>
+    <ng-container matColumnDef="win">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Win </th>
+      <td mat-cell *matCellDef="let row"> 
+        {{ row.win === true ? 'Vitória' : row.win === false ? 'Derrota' : 'Desconhecido' }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="start_time">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Time </th>
+      <td mat-cell *matCellDef="let row"> {{ row.start_time | date: 'dd/MM/yyyy HH:mm:ss' }} </td>
+    </ng-container>
+    <ng-container matColumnDef="end_time">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> End Time </th>
+      <td mat-cell *matCellDef="let row"> {{row.end_time }} </td>
+    </ng-container>
+    <ng-container matColumnDef="final_level">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Final Level </th>
+      <td mat-cell *matCellDef="let row"> {{row.final_level}} </td>
+    </ng-container>
+    <ng-container matColumnDef="wave">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Wave </th>
+      <td mat-cell *matCellDef="let row"> {{row.wave}} </td>
+    </ng-container>
+    <ng-container matColumnDef="heroi">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Heroi </th>
+      <td mat-cell *matCellDef="let row"> {{row.heroi }} </td>
+    </ng-container>
+    <ng-container matColumnDef="heroiImg">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Herói Imagem </th>
+      <td mat-cell *matCellDef="let row">
+        <img 
+          *ngIf="row.heroiImagem" 
+          [src]="row.heroiImagem" 
+          alt="Imagem do Herói" 
+          style="width: 50px; height: 50px; border-radius: 50%;" 
+        />
+        <span *ngIf="!row.heroiImagem">Sem imagem</span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="suporte1">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Suporte 1 </th>
+      <td mat-cell *matCellDef="let row"> {{row?.suportes?.[0] }} </td>
+    </ng-container>
+    <ng-container matColumnDef="suporte2">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Suporte 2 </th>
+      <td mat-cell *matCellDef="let row"> {{row?.suportes?.[1] }} </td>
+    </ng-container>
+    <ng-container matColumnDef="suporte3">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Suporte 3 </th>
+      <td mat-cell *matCellDef="let row"> {{row?.suportes?.[2] }} </td>
+    </ng-container>
+    <ng-container matColumnDef="suporte4">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Suporte 4 </th>
+      <td mat-cell *matCellDef="let row"> {{ row?.suportes?.[3] }} </td>
+    </ng-container>
+    <ng-container matColumnDef="damage_taken">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Damage Taken </th>
+      <td mat-cell *matCellDef="let row"> {{row.damage_taken}} </td>
+    </ng-container>
+    <ng-container matColumnDef="damage_healed">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Damage Healed </th>
+      <td mat-cell *matCellDef="let row"> {{row.damage_healed}} </td>
+    </ng-container>
+    <ng-container matColumnDef="enemies_quantity">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Enemies </th>
+      <td mat-cell *matCellDef="let row"> {{row.enemies_quantity}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Speed">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Speed </th>
+      <td mat-cell *matCellDef="let row"> {{row.itens?.[0].level}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Hp Regen">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Hp Regen </th>
+      <td mat-cell *matCellDef="let row"> {{row.itens?.[1].level}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Magnet">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Magnet </th>
+      <td mat-cell *matCellDef="let row"> {{row.itens?.[2].level}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Cooldown">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Cooldown </th>
+      <td mat-cell *matCellDef="let row"> {{row.itens?.[3].level}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Critical">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Critical </th>
+      <td mat-cell *matCellDef="let row"> {{row.itens?.[4].level}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator 
+    [ariaLabel]="'Quantidade de itens por página'"
+    [pageSizeOptions]="[5, 10, 25, 100]" 
+    [pageSize]="10" 
+    showFirstLastButtons 
+    >  
+  </mat-paginator>
+
+  <ng-template #loading>
+    <p>Carregando dados...</p>
+  </ng-template>
+  

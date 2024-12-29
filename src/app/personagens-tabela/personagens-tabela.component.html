@@ -1,0 +1,63 @@
+<div class="container-tabelas">
+
+  <table mat-table [dataSource]="dataSourceHeroi" matSort #sortHeroi="matSort">
+    <ng-container matColumnDef="heroi">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Herói </th>
+      <td mat-cell *matCellDef="let row"> {{ row.heroi }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mediaDamageHeroi">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="mediaDamage"> Média Damage </th>
+      <td mat-cell *matCellDef="let row"> {{ row.mediaDamage | number:'1.0-2' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mediaDamageBossHeroi">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="mediaDamageBoss"> Média Damage Boss </th>
+      <td mat-cell *matCellDef="let row"> {{ row.mediaDamageBoss | number:'1.0-2' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mediaDpsHeroi">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="mediaDps"> Média DPS </th>
+      <td mat-cell *matCellDef="let row"> {{ row.mediaDps | number:'1.0-2' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="qntPartidasHeroi">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="qntPartidas"> Quantidade </th>
+      <td mat-cell *matCellDef="let row"> {{ row.qntPartidas | number:'1.0-2' }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="colunasTabelaHeroi"></tr>
+    <tr mat-row *matRowDef="let row; columns: colunasTabelaHeroi;"></tr>
+  </table>
+
+  <table mat-table [dataSource]="dataSourceSuporte" matSort #sortSuporte="matSort" >
+    <ng-container matColumnDef="suporte">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Suporte </th>
+      <td mat-cell *matCellDef="let row"> {{ row.suporte }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mediaDamageSuporte">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header="mediaDamage"> Média Damage </th>
+      <td mat-cell *matCellDef="let row"> {{ row.mediaDamage | number:'1.0-2' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mediaDamageBossSuporte">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header = "mediaDamageBoss" > Média Damage Boss </th>
+      <td mat-cell *matCellDef="let row"> {{ row.mediaDamageBoss | number:'1.0-2' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mediaDpsSuporte">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header = "mediaDps"> Média DPS </th>
+      <td mat-cell *matCellDef="let row"> {{ row.mediaDps | number:'1.0-2' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="qntPartidasSuporte">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header = "qntPartidas" > Quantidade </th>
+      <td mat-cell *matCellDef="let row"> {{ row.qntPartidas | number:'1.0-2' }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="colunasTabelaSuporte"></tr>
+    <tr mat-row *matRowDef="let row; columns: colunasTabelaSuporte;"></tr>
+  </table>
+</div>
+

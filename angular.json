@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -68,7 +69,8 @@
               "browserTarget": "shard-squad-site:build:production"
             },
             "development": {
-              "browserTarget": "shard-squad-site:build:development"
+              "browserTarget": "shard-squad-site:build:development",
+              "proxyConfig": "src/proxy.conf.js"
             }
           },
           "defaultConfiguration": "development"
@@ -93,6 +95,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -100,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

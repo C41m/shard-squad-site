@@ -1,0 +1,20 @@
+// dashboard.component.scss
+
+table {
+  margin: 0 auto;              // Centraliza a tabela horizontalmente
+  width: 100%;                 // Garante que a tabela ocupe toda a largura do container
+  table-layout: fixed;         // Garante que as colunas da tabela tenham larguras fixas e bem distribuídas
+  overflow-x: auto;            // Permite o scroll horizontal se o conteúdo ultrapassar a largura da tabela
+  max-width: 100%;             // Garante que a tabela não ultrapasse a largura do container
+  display: block;              // Necessário para que o scroll horizontal funcione
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;                 // Garante que os campos dentro da tabela ocupem toda a largura
+}
+
+td, th {
+  width: 25%;                  // Ajuste a largura das células da tabela conforme necessário
+  text-align: center;          // Centraliza o texto nas células
+}

@@ -1,0 +1,16 @@
+<table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="item">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Item </th>
+      <td mat-cell *matCellDef="let row"> {{ row.item }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="quantidade">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="somaLevel"> Quantidade </th>
+        <td mat-cell *matCellDef="let row"> {{ row.somaLevel | number:'1.0-2' }} </td>
+      </ng-container>
+    
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+</table>
